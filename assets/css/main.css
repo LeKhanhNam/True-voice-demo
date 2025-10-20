@@ -24,7 +24,7 @@
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #2b180d; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #1b2f45; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #56b8e6; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color: #f57117; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -41,7 +41,7 @@
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #56b8e6; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-dropdown-hover-color: #f57117; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -151,7 +151,7 @@ h6 {
 --------------------------------------------------------------*/
 .header {
   --background-color: rgba(255, 255, 255, 0);
-  --heading-color: #ffffff;
+  --heading-color: #f57117;
   color: var(--default-color);
   background-color: var(--background-color);
   padding: 15px 0;
@@ -182,7 +182,7 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-  --background-color: rgba(23, 40, 59, 0.9);
+  --background-color: #082239;
 }
 
 /*--------------------------------------------------------------
@@ -983,7 +983,9 @@ section,
   margin-left: 8px;
 }
 
-.services .service-item:hover .title,
+.services .service-item:hover .title {
+  transform: scale(1.2);
+}
 .services .service-item:hover .readmore,
 .services .service-item:hover .icon i {
   color: var(--accent-color);
@@ -1762,12 +1764,12 @@ section,
 
 .contact .info-item {
   align-items: flex-start; /* căn icon và text từ trên xuống */
-  text-align: left;        /* căn toàn bộ chữ về trái */
+  text-align: left; /* căn toàn bộ chữ về trái */
 }
 
 .contact .info-item div {
-  text-align: left;        /* căn chữ bên trong khối div về trái */
-  margin-left: 12px;       /* tạo khoảng cách giữa icon và text */
+  text-align: left; /* căn chữ bên trong khối div về trái */
+  margin-left: 12px; /* tạo khoảng cách giữa icon và text */
 }
 
 .contact .info-item i {
@@ -2485,69 +2487,71 @@ section,
 }
 
 .service-row {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    margin-bottom: 100px;
-    transition: all 0.4s ease;
-  }
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 100px;
+  transition: all 0.4s ease;
+}
 
-  .row {
+#services .row {
   display: flex;
   justify-content: center; /* căn giữa 3 item */
-  text-align: center;      /* căn giữa text & icon */
+  text-align: center; /* căn giữa text & icon */
 }
 
 .service-item {
-  flex-direction: column;  /* icon trên, title dưới */
-  align-items: center;     /* căn giữa icon + title theo trục dọc */
+  flex-direction: column; /* icon trên, title dưới */
+  align-items: center; /* căn giữa icon + title theo trục dọc */
 }
 
-  .service-row.reverse { flex-direction: row-reverse; }
+.service-row.reverse {
+  flex-direction: row-reverse;
+}
 
-  .service-row:hover {
-    transform: translateY(-5px);
-  }
+.service-row:hover {
+  transform: translateY(-5px);
+}
 
-  .service-text {
-    flex: 1;
-  }
-  .service-text h2 {
-    font-size: 1.9rem;
-    color: #111;
-    font-weight: 700;
-    margin-top: 25px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .service-text .icon {
-    width: 36px;
-    height: 36px;
-  }
-  .service-text p {
-    color: #444;
-    line-height: 1.8;
-    margin-bottom: 10px;
-      text-align: justify;
-  text-justify: inter-word; 
-  }
+.service-text {
+  flex: 1;
+}
+.service-text h2 {
+  font-size: 1.9rem;
+  color: #111;
+  font-weight: 700;
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.service-text .icon {
+  width: 36px;
+  height: 36px;
+}
+.service-text p {
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 10px;
+  text-align: justify;
+  text-justify: inter-word;
+}
 
-  .service-img {
-    flex: 1;
-  }
-  .service-img img {
-    width: 100%;
-    border-radius: 18px;
-    transition: all 0.4s ease;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  }
-  .service-row:hover .service-img img {
-    transform: scale(1.03);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  }
+.service-img {
+  flex: 1;
+}
+.service-img img {
+  width: 100%;
+  border-radius: 18px;
+  transition: all 0.4s ease;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+.service-row:hover .service-img img {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
 
-  .service-item .title {
+.service-item .title {
   position: relative;
   display: inline-block;
   font-weight: 700;
@@ -2577,51 +2581,63 @@ section,
 }
 
 /* Nếu muốn đổi màu khi hover */
-.service-item:hover .title::before {
-  background: rgba(0, 119, 255, 0.3);
+
+/* Our Values */
+.values {
+  margin-top: 25px;
+}
+.values-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 12px 0;
+  border-top: 1px solid #e5e7eb;
+  color: #333;
+  transition: color 0.3s;
+}
+.values-header:hover {
+  color: #0077ff;
+}
+.arrow {
+  transition: transform 0.3s ease;
+}
+.values-list {
+  display: none;
+  margin-top: 10px;
+  padding-left: 20px;
+  color: #555;
+  line-height: 1.7;
+  list-style-type: disc;
 }
 
+.values-list li {
+  margin-bottom: 6px;
+}
 
-  /* Our Values */
-  .values {
-    margin-top: 25px;
+.values-header.active + .values-list {
+  display: block;
+}
+.values-header.active .arrow {
+  transform: rotate(90deg);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .service-row,
+  .service-row.reverse {
+    flex-direction: column;
   }
-  .values-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    font-size: 1.1rem;
-    padding: 12px 0;
-    border-top: 1px solid #e5e7eb;
-    color: #333;
-    transition: color 0.3s;
+  .service-row.reverse .service-text {
+    order: 1;
   }
-  .values-header:hover { color: #0077ff; }
-  .arrow { transition: transform 0.3s ease; }
-  .values-list {
-    display: none;
-    margin-top: 10px;
-    padding-left: 20px;
-    color: #555;
-    line-height: 1.7;
-    list-style-type: disc;
+  .service-img img {
+    width: 100%;
   }
+}
 
-
-  .values-list li { margin-bottom: 6px; }
-
-  .values-header.active + .values-list { display: block; }
-  .values-header.active .arrow { transform: rotate(90deg); }
-
-  /* Responsive */
-  @media (max-width: 900px) {
-    .service-row, .service-row.reverse { flex-direction: column; }
-    .service-row.reverse .service-text { order: 1; }
-    .service-img img { width: 100%; }
-  }
-
-  html {
+html {
   scroll-behavior: smooth;
 }
 
