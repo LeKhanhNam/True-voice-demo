@@ -162,3 +162,37 @@
   });
 
 })();
+
+function toggleValues(header) {
+  const list = header.nextElementSibling;
+  const isActive = header.classList.contains('active');
+
+  // Đóng tất cả các mục khác
+  document.querySelectorAll('.values-header').forEach(h => {
+    h.classList.remove('active');
+    h.nextElementSibling.style.display = 'none';
+  });
+
+  // Mở lại nếu chưa active
+  if (!isActive) {
+    header.classList.add('active');
+    list.style.display = 'block';
+  }
+}
+
+function toggleValues(header) {
+  const list = header.nextElementSibling;
+  const isActive = header.classList.contains('active');
+
+  // Đóng tất cả các mục khác
+  document.querySelectorAll('.values-header').forEach(h => {
+    h.classList.remove('active');
+    h.nextElementSibling.style.display = 'none';
+  });
+
+  // Mở lại nếu chưa active
+  if (!isActive) {
+    header.classList.add('active');
+    list.style.display = 'block';
+  }
+}
