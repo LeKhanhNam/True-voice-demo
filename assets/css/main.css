@@ -935,28 +935,28 @@ section,
 /*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/
-.services .service-item {
+.values .service-item {
   position: relative;
   height: 100%;
   margin-bottom: 30px;
 }
 
-.services .service-item .icon {
+.values .service-item .icon {
   margin-right: 20px;
 }
 
-.services .service-item .icon i {
+.values .service-item .icon i {
   color: var(--accent-color);
   font-size: 40px;
   line-height: 0;
   transition: 0.3s;
 }
 
-.services .service-item:hover .icon i {
+.values .service-item:hover .icon i {
   color: var(--accent-color);
 }
 
-.services .service-item .title {
+.values .service-item .title {
   color: var(--heading-color);
   font-weight: 700;
   margin-bottom: 10px;
@@ -964,13 +964,13 @@ section,
   transition: 0.3s;
 }
 
-.services .service-item .description {
+.values .service-item .description {
   font-size: 15px;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   margin-bottom: 10px;
 }
 
-.services .service-item .readmore {
+.values .service-item .readmore {
   display: flex;
   align-items: center;
   color: color-mix(in srgb, var(--default-color), transparent 50%);
@@ -979,15 +979,15 @@ section,
   font-size: 14px;
 }
 
-.services .service-item .readmore i {
+.values .service-item .readmore i {
   margin-left: 8px;
 }
 
-.services .service-item:hover .title {
+.values .service-item:hover .title {
   transform: scale(1.2);
 }
-.services .service-item:hover .readmore,
-.services .service-item:hover .icon i {
+.values .service-item:hover .readmore,
+.values .service-item:hover .icon i {
   color: var(--accent-color);
 }
 
@@ -2737,7 +2737,7 @@ section,
 
 /* Our Services */
 .services {
-  padding-bottom: 0; /* hoặc 0 nếu bạn không cần khoảng trống */
+  padding-bottom: 0px; /* hoặc 0 nếu bạn không cần khoảng trống */
 }
 
 .service-row {
@@ -2898,3 +2898,92 @@ html {
 :target {
   scroll-margin-top: 220px;
 }
+
+/* ======= Services Section ======= */
+.services {
+  padding: 30px 0px;
+  background: #fff;
+}
+
+/* Section Header */
+.section-header h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #0b102d;
+}
+
+.section-header p {
+  color: #4b4b4b;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.section-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Gradient Header Line (centered) */
+.header-line {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #f57117, #ff9f43, #ffd26f, #f57117);
+  border-radius: 3px;
+  margin: 10px auto 0;
+  background-size: 300% 100%;
+  animation: moveGradient 3s ease-in-out infinite, expandLine 1.2s ease;
+  box-shadow: 0 2px 6px rgba(245, 113, 23, 0.35);
+}
+
+/* Animate line */
+@keyframes moveGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes expandLine {
+  from { width: 0; opacity: 0; }
+  to { width: 60px; opacity: 1; }
+}
+
+/* Service Cards */
+.service-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 35px 25px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(245, 113, 23, 0.25);
+}
+
+.service-card .icon {
+  font-size: 42px;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #f57117, #ff9f43);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.service-card h4 {
+  font-weight: 700;
+  font-size: 20px;
+  color: #0b102d;
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  font-size: 15px;
+  color: #4b4b4b;
+  line-height: 1.6;
+}
+
+.values-section {
+  background-color: #d2dce7; /* nền xám sáng */
+  padding: 80px 0;
+  }
