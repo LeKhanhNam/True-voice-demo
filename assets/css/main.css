@@ -1055,27 +1055,292 @@ section,
 /*--------------------------------------------------------------
 # Features Section
 --------------------------------------------------------------*/
-.features h3 {
-  font-size: 32px;
+#iphone-showcase {
+  position: relative;
+  overflow: visible;
+  margin-bottom: -140px; /* tạo khoảng trống giữa 2 section */
+  padding-bottom: 120px; /* thêm không gian bên trong */
+}
+
+/* iPhone 16 Pro Max Frame */
+.iphone-pro {
+  position: relative;
+  width: 320px;
+  height: 620px;
+  margin: 80px auto;
+  border-radius: 60px;
+  background: linear-gradient(145deg, #2a2a2a, #000);
+  padding: 18px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Header Title */
+.iphone-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -5px;
+  animation: fadeInUp 1s ease;
+}
+
+/* Heading ngoài iPhone */
+.approach-title-outside {
+  font-size: 40px;
   font-weight: 700;
-  margin-bottom: 30px;
+  background: linear-gradient(90deg, #f57117, #ff9f43);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: -30px;
+  opacity: 1;
+  transition: all 0.8s ease;
 }
 
-.features .icon-list i {
-  margin-right: 10px;
-  font-size: 24px;
-  line-height: 1;
+/* Khi đã scroll tới (ẩn dần heading ngoài) */
+.approach-title-outside.hide {
+  transform: translateY(-30px);
+  opacity: 0;
 }
 
-.features .icon-list span {
-  font-size: 16px;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+/* Heading bên trong iPhone */
+.approach-title-inside {
+  font-size: 34px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #f57117, #ff9f43);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: all 0.8s ease;
 }
 
-.features .phone-wrap {
+/* Khi scroll đến đủ vị trí → hiện heading trong iPhone */
+.approach-title-inside.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gradient Header Line */
+.header-line {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #f57117, #ff9f43, #ffd26f, #f57117);
+  border-radius: 3px;
+  margin-top: 8px;
+  background-size: 300% 100%;
+  animation: moveGradient 3s ease-in-out infinite, expandLine 1.2s ease;
+  box-shadow: 0 2px 6px rgba(245, 113, 23, 0.35);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes expandLine {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 60px;
+    opacity: 1;
+  }
+}
+
+/* Gradient move animation */
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Dynamic Island */
+.dynamic-island {
   position: absolute;
-  right: 0;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 115px;
+  height: 35px;
+  background: #000;
+  border-radius: 18px;
+  box-shadow: inset 0 0 4px rgba(255,255,255,0.15);
+  z-index: 10;
 }
+
+/* Screen area */
+.screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #fefefe, #f6f7fb);
+  border-radius: 45px;
+  padding: 40px 25px 45px; /* tăng khoảng cách trên dưới */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* không dàn đều nữa */
+  align-items: center;
+  gap: 22px; /* tạo khoảng cách đều giữa các step */
+}
+
+/* Step common style */
+.step {
+  width: 90%; /* thu nhỏ nhẹ để tạo viền trắng 2 bên */
+  border-radius: 25px;
+  padding: 25px 10px; /* gọn hơn để không quá dày */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.step:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+}
+
+.step i {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.step h4 {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* 🎧 Custom colors per step */
+.step-listen {
+  background: linear-gradient(145deg, #e6f4ff, #ffffff);
+  color: #007bff;
+}
+
+.step-analyze {
+  background: linear-gradient(145deg, #fff5e6, #ffffff);
+  color: #ff8800;
+}
+
+.step-deliver {
+  background: linear-gradient(145deg, #e8ffe6, #ffffff);
+  color: #28a745;
+}
+
+/* Wrapper định vị tương đối để connector nằm ngoài iPhone */
+.iphone-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Đảm bảo các step có vị trí tương đối để vẽ line từ chính giữa */
+.step {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- ĐƯỜNG LINE MÀU CAM NỐI GIỮA STEP VÀ DESCRIPTION --- */
+.step::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, #f57117, #ff9f43);
+  z-index: 1;
+  display: block;
+}
+
+/* Listen → ra bên phải */
+.step-listen::after {
+  right: -120px;
+}
+
+/* Analyze → ra bên trái */
+.step-analyze::after {
+  left: -120px;
+}
+
+/* Deliver → ra bên phải */
+.step-deliver::after {
+  right: -120px;
+}
+
+/* --- BOX MÔ TẢ --- */
+.desc {
+  position: absolute;
+  width: 260px;
+  background: #fff;
+  border-left: 3px solid #f57117;
+  border-radius: 8px;
+  padding: 14px 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-size: 15Zpx;
+  line-height: 1.5;
+  color: #333;
+  transition: all 0.4s ease;
+  z-index: 3;
+}
+
+/* Vị trí của các box bên ngoài */
+.desc-listen {
+  right: calc(50% - 280px - 130px);
+  width: 285px;
+  top: 215px;
+}
+
+.desc-analyze {
+  left: calc(50% - 335px - 130px);
+  top: 360px;
+    width: 340px;
+  text-align: center;
+  border-left: none;
+  border-right: 3px solid #f57117;
+}
+
+.desc-deliver {
+  right: calc(50% - 280px - 130px);
+  top: 510px;
+    width: 285px;
+}
+
+/* --- HIỆU ỨNG HOVER: đẩy box ra xa hơn --- */
+.step-listen:hover ~ .desc-listen {
+  transform: translateX(50px);
+}
+.step-analyze:hover ~ .desc-analyze {
+  transform: translateX(-50px);
+}
+.step-deliver:hover ~ .desc-deliver {
+  transform: translateX(50px);
+}
+
+/* --- Responsive: ẩn mô tả ngoài trên mobile --- */
+@media (max-width: 992px) {
+  .desc {
+    display: none;
+  }
+}
+
 
 @media (max-width: 768px) {
   .features .phone-wrap {
@@ -1103,17 +1368,6 @@ section,
   margin-top: 80px;
   padding: 120px 0;
   background-color: color-mix(in srgb, var(--default-color), transparent 97%);
-}
-
-.features .details h4 {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.features .details p {
-  margin-bottom: 20px;
-  font-size: 15px;
 }
 
 .features .details .btn-get-started {
@@ -2518,7 +2772,7 @@ section,
 }
 .service-text h2 {
   font-size: 1.9rem;
-  color: #111;
+  color: #f57117;
   font-weight: 700;
   margin-top: 25px;
   display: flex;

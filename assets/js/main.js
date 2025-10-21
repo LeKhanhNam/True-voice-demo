@@ -196,3 +196,28 @@ function toggleValues(header) {
     list.style.display = 'block';
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const phoneSection = document.querySelector(".iphone-pro");
+  const titleOutside = document.querySelector("#approach-title");
+  const titleInside = document.querySelector(".approach-title-inside");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Khi iPhone full trong viewport
+          titleOutside.classList.add("hide");
+          titleInside.classList.add("show");
+        } else {
+          // Khi scroll ngược lên
+          titleOutside.classList.remove("hide");
+          titleInside.classList.remove("show");
+        }
+      });
+    },
+    { threshold: 0.7 } // hiển thị khi 70% iPhone xuất hiện
+  );
+
+  observer.observe(phoneSection);
+});
