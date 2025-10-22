@@ -2987,3 +2987,24 @@ html {
   background-color: #d2dce7; /* nền xám sáng */
   padding: 80px 0;
   }
+
+  #truevoice-intro {
+  background-color: #f8f9fa;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+#truevoice-intro h2 {
+  font-size: 40px;
+  color: #0b102d;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+#truevoice-intro p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto 30px auto;
+}
