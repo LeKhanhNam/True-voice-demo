@@ -1175,6 +1175,47 @@ section,
   }
 }
 
+
+@media (max-width: 768px) {
+  .iphone-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .desc {
+    text-align: center;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 992px) {
+  .iphone-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .iphone-pro {
+    margin-bottom: 30px;
+  }
+  .desc {
+    max-width: 90%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 992px) {
+  .desc {
+    animation: fadeInUp .6s ease forwards;
+    opacity: 0;
+  }
+  .desc:nth-child(1) { animation-delay: .2s; }
+  .desc:nth-child(2) { animation-delay: .4s; }
+  .desc:nth-child(3) { animation-delay: .6s; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Dynamic Island */
 .dynamic-island {
   position: absolute;
@@ -2805,7 +2846,6 @@ section,
   margin-bottom: 30px;
   text-align: justify;
   text-justify: inter-word;
-  width: 90%;
 }
 
 .service-img {
@@ -2977,6 +3017,12 @@ html {
   height: 100%;
 }
 
+@media (max-width: 768px) {
+  .service-card {
+    margin-bottom: 20px;
+  }
+}
+
 .service-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 24px rgba(245, 113, 23, 0.25);
@@ -3014,6 +3060,20 @@ html {
   text-align: center;
 }
 
+#truevoice-intro img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-left: -50px;
+}
+
+@media (max-width: 768px) {
+  #truevoice-intro img {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+}
+
 #truevoice-intro h2 {
   font-size: 40px;
   color: #0b102d;
@@ -3034,6 +3094,25 @@ html {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
   justify-items: center;
+}
+
+#our-values-new .values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-content: center;
+}
+
+@media (max-width: 992px) {
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .value-card {
