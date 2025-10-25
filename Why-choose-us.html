@@ -48,34 +48,48 @@
   </head>
 
   <body class="about-page">
-   <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+    <header id="header" class="header d-flex align-items-center fixed-top">
+      <div
+        class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
+      >
+        <a href="index.html" class="logo d-flex align-items-center">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1 class="sitename">TrueVoice Research</h1>
+        </a>
 
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">TrueVoice Research</h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html">Home<br></a></li>
-          <li><a href="about-us.html">About Us</a></li>
-          <li class="dropdown"><a href="services.html"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="services.html#market-research">Market Research</a></li>
-              <li><a href="services.html#healthcare">Healthcare Call Center</a></li>
-              <li><a href="services.html#insurance">Insurance Call Center</a></li>
-            </ul>
-          </li>
-          <li><a href="Why-choose-us.html"class="active">Why Choose Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-    </div>
-  </header>
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li>
+              <a href="index.html">Home<br /></a>
+            </li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li class="dropdown">
+              <a href="services.html"
+                ><span>Services</span>
+                <i class="bi bi-chevron-down toggle-dropdown"></i
+              ></a>
+              <ul>
+                <li>
+                  <a href="services.html#market-research">Market Research</a>
+                </li>
+                <li>
+                  <a href="services.html#healthcare">Healthcare Call Center</a>
+                </li>
+                <li>
+                  <a href="services.html#insurance">Insurance Call Center</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="Why-choose-us.html" class="active">Why Choose Us</a>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </header>
 
     <main class="main">
       <!-- Page Title -->
@@ -132,7 +146,7 @@
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <div class="swiper init-swiper" style="margin-top: 100px;">
+              <div class="swiper init-swiper" style="margin-top: 100px">
                 <script type="application/json" class="swiper-config">
                   {
                     "loop": true,
@@ -227,121 +241,173 @@
       </section>
       <!-- /Why Us Section -->
     </main>
-        <!-- Contact Section -->
+    <!-- Contact Section -->
     <section id="contact" class="contact section">
-
-      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-
+      <div
+        class="container position-relative"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
         <div class="row gy-4">
-
           <div class="col-lg-5">
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div
+              class="info-item d-flex"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
               <i class="bi bi-geo-alt flex-shrink-0"></i>
               <div>
                 <h3>Address</h3>
-                <p>Need to fill
+                <p>Need to fill</p>
               </div>
-            </div><!-- End Info Item -->
+            </div>
+            <!-- End Info Item -->
 
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div
+              class="info-item d-flex"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
               <i class="bi bi-telephone flex-shrink-0"></i>
               <div>
                 <h3>Call Us</h3>
                 <p>Need to fill</p>
               </div>
-            </div><!-- End Info Item -->
+            </div>
+            <!-- End Info Item -->
 
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div
+              class="info-item d-flex"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h3>Email Us</h3>
                 <p>Need to fill</p>
               </div>
-            </div><!-- End Info Item -->
-
+            </div>
+            <!-- End Info Item -->
           </div>
 
           <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
-              <div class="row gy-4" style="margin-top: 5px;">
+            <form
+              action="forms/contact.php"
+              method="post"
+              class="php-email-form"
+              data-aos="fade-up"
+              data-aos-delay="500"
+            >
+              <div class="row gy-4" style="margin-top: 5px">
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    placeholder="Your Name"
+                    required=""
+                  />
+                </div>
 
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    placeholder="Your Email"
+                    required=""
+                  />
                 </div>
 
                 <div class="col-md-12">
-                  <input type="text" class="form-control" name="Company Name" placeholder="Company Name" required="">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="Company Name"
+                    placeholder="Company Name"
+                    required=""
+                  />
                 </div>
 
                 <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                  <textarea
+                    class="form-control"
+                    name="message"
+                    rows="6"
+                    placeholder="Message"
+                    required=""
+                  ></textarea>
                 </div>
 
                 <div class="col-md-12 text-center">
                   <div class="loading">Loading</div>
                   <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                  <div class="sent-message">
+                    Your message has been sent. Thank you!
+                  </div>
 
                   <button type="submit">Send Message</button>
                 </div>
-
               </div>
             </form>
-          </div><!-- End Contact Form -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Contact Section -->
-   <footer id="footer" class="footer light-background">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row gy-4">
-<div class="col-lg-5 col-md-12 footer-about text-center">
-    <img src="assets/img/TrueVoiceResearchLogo_PNG.png" 
-         alt="Nova Logo"
-         style="max-width: 180px; height: auto;">
-</div>
-          <div class="col-lg-2 col-6 footer-links">
-            <h4>Explore More</h4>
-            <ul>
-              <li><a href="about-us.html">About us</a></li>
-              <li><a href="Why-choose-us.html">Why Choose Us</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
           </div>
-
-          <div class="col-lg-2 col-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><a href="services.html">Market Research</a></li>
-              <li><a href="services.html">Healthcare Call Center</a></li>
-              <li><a href="services.html">Insurance Call Center</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-            <h4>Contact Us</h4>
-            <p>Need to fill</p>
-            <p>Need to fill</p>
-            <p class="mt-4"><strong>Phone:</strong> <span>Need to fill</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
-          </div>
-
+          <!-- End Contact Form -->
         </div>
       </div>
-    </div>
+    </section>
+    <!-- /Contact Section -->
+    <footer id="footer" class="footer light-background">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-5 col-md-12 footer-about text-center">
+              <img
+                src="assets/img/TrueVoiceResearchLogo_PNG.png"
+                alt="Nova Logo"
+                style="max-width: 180px; height: auto"
+              />
+            </div>
+            <div class="col-lg-2 col-6 footer-links">
+              <h4>Explore More</h4>
+              <ul>
+                <li><a href="about-us.html">About us</a></li>
+                <li><a href="Why-choose-us.html">Why Choose Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
 
-    <div class="container copyright text-center">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">2026 TrueVoice Research</strong> <span>All Rights Reserved</span></p>
-    </div>
+            <div class="col-lg-2 col-6 footer-links">
+              <h4>Our Services</h4>
+              <ul>
+                <li><a href="services.html">Market Research</a></li>
+                <li><a href="services.html">Healthcare Call Center</a></li>
+                <li><a href="services.html">Insurance Call Center</a></li>
+              </ul>
+            </div>
 
-  </footer>
+            <div
+              class="col-lg-3 col-md-12 footer-contact text-center text-md-start"
+            >
+              <h4>Contact Us</h4>
+              <p>Need to fill</p>
+              <p>Need to fill</p>
+              <p class="mt-4">
+                <strong>Phone:</strong> <span>Need to fill</span>
+              </p>
+              <p><strong>Email:</strong> <span>info@example.com</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container copyright text-center">
+        <p>
+          © <span>Copyright</span>
+          <strong class="px-1 sitename">2026 TrueVoice Research</strong>
+          <span>All Rights Reserved</span>
+        </p>
+      </div>
+    </footer>
 
     <!-- Scroll Top -->
     <a
