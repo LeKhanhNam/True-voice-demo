@@ -204,3 +204,142 @@ document.addEventListener("DOMContentLoaded", () => {
 
   observer.observe(phoneSection);
 });
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const aiWave = document.getElementById('aiWave');
+  const aiChat = document.getElementById('aiChat');
+  const sendBtn = document.getElementById('sendBtn');
+  const userInput = document.getElementById('userInput');
+  const aiMessages = document.getElementById('aiMessages');
+  const micBtn = document.getElementById('micBtn');
+
+  // ==== 1️⃣ Toggle Chat ====
+  aiWave?.addEventListener('click', e => {
+    e.stopPropagation();
+    aiChat.style.display = aiChat.style.display === 'flex' ? 'none' : 'flex';
+  });
+  document.addEventListener('click', e => {
+    if (!aiChat.contains(e.target) && !aiWave.contains(e.target)) {
+      aiChat.style.display = 'none';
+    }
+  });
+
+  // ==== 2️⃣ TTS Function ====
+  function speakText(text, lang = 'en-US') {
+    if (!('speechSynthesis' in window)) {
+      console.warn("SpeechSynthesis not supported");
+      return;
+    }
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = lang;
+    utter.rate = 1.05;    // tốc độ đọc (0.5–2)
+    utter.pitch = 1.75;   // cao độ (0–2)
+    utter.volume = 0.75;  // âm lượng (0–1)
+    speechSynthesis.cancel(); // ngắt giọng cũ
+    speechSynthesis.speak(utter);
+  }
+
+  window.speechSynthesis.onvoiceschanged = () => {
+  window.speechSynthesis.getVoices();
+};
+    const voices = window.speechSynthesis.getVoices();
+  if (voices.length) utter.voice = voices.find(v => v.lang.includes(lang)) || voices[0];
+
+  // ✅ đợi 1 chút trước khi đọc để không bị cắt chữ đầu
+  setTimeout(() => {
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utter);
+  }, 200);
+
+  // ==== 3️⃣ Send Message ====
+  function sendMessage() {
+    const msg = userInput.value.trim();
+    if (!msg) return;
+    const userMsg = document.createElement('div');
+    userMsg.className = 'ai-msg user';
+    userMsg.textContent = msg;
+    aiMessages.appendChild(userMsg);
+    userInput.value = '';
+
+    setTimeout(() => {
+      const botMsg = document.createElement('div');
+      botMsg.className = 'ai-msg bot';
+      const reply = getBotReply(msg);
+      botMsg.textContent = reply;
+      aiMessages.appendChild(botMsg);
+      aiMessages.scrollTop = aiMessages.scrollHeight;
+      speakText(reply); // 🗣️ nói câu trả lời
+    }, 500);
+  }
+
+  function getBotReply(input) {
+    input = input.toLowerCase();
+    if (input.includes('hello') || input.includes('hi')) return "Hi there! I'm TrueVoice AI. Nice to meet you.";
+    if (input.includes('service')) return "We offer AI-powered research and call center solutions.";
+    if (input.includes('contact') || input.includes('connect')) return "You can contact us directly through this form or via email.";
+    if (input.includes('thank')) return "You're very welcome! Always here to help.";
+    if (input.includes("who are you") || input.includes("what is truevoice") || input.includes("company") || input.includes("what do the company do")) 
+    return "We are TrueVoice Research — a data intelligence and voice analytics company that helps organizations turn conversations into insights.";
+  if (input.includes("service") || input.includes("offer"))
+    return "We provide Voice Analytics, Market Research, and specialized Call Center solutions for healthcare and insurance industries.";
+  if (input.includes("market research"))
+    return "We design and conduct AI-enhanced market research to help clients understand their customers and make data-driven decisions.";
+  if (input.includes("why choose") || input.includes("advantage"))
+    return "Because TrueVoice combines technology, human expertise, and data analytics to deliver meaningful insights and better customer experiences.";
+  if (input.includes("ai") || input.includes("technology"))
+    return "Our AI listens, transcribes, and analyzes conversations to detect emotion, intent, and key insights across every call.";
+  if (input.includes("how are you")) return "I’m doing great! Thanks for asking. How about you?";
+  if (input.includes("bye")) return "Goodbye! Have a great day from TrueVoice Research.";
+  if (input.includes("approach") || input.includes("how do you work") || input.includes("method"))
+      return "We follow a simple yet powerful approach: Listen – Analyze – Deliver. We capture real voices, analyze patterns, and turn them into strategic actions.";
+   if (input.includes("value") || input.includes("core") || input.includes("principle"))
+    return "Our core values are Integrity, Transparency, Agility, Human-Centered Progress, Quality Care, and Innovation.";
+
+    return "That's interesting. You can contact us directly through this form or via email. I'll make sure our team knows about your thoughts.";
+  }
+
+  sendBtn?.addEventListener('click', sendMessage);
+  userInput?.addEventListener('keypress', e => { if (e.key === 'Enter') sendMessage(); });
+
+  // ==== 4️⃣ Voice Recognition ====
+  let recognition;
+  let recognizing = false;
+
+  if ('webkitSpeechRecognition' in window) {
+    recognition = new webkitSpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = true;
+    recognition.lang = 'en-US'; // hoặc 'vi-VN' nếu bạn nói tiếng Việt
+
+    recognition.onstart = () => {
+      recognizing = true;
+      micBtn.classList.add('active');
+      console.log("🎤 Listening...");
+    };
+    recognition.onresult = (event) => {
+      let transcript = '';
+      for (let i = event.resultIndex; i < event.results.length; ++i)
+        transcript += event.results[i][0].transcript;
+      userInput.value = transcript;
+    };
+    recognition.onerror = (e) => console.error("Speech error:", e.error);
+    recognition.onend = () => {
+      recognizing = false;
+      micBtn.classList.remove('active');
+      console.log("🛑 Mic stopped");
+      if (userInput.value.trim()) sendMessage();
+    };
+
+    micBtn.addEventListener('click', () => {
+      if (!recognition) return;
+      if (recognizing) recognition.stop();
+      else recognition.start();
+    });
+  } else {
+    micBtn.style.display = "none";
+  }
+});
+

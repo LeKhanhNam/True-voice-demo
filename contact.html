@@ -58,7 +58,7 @@
               <li><a href="services.html#insurance">Insurance Call Center</a></li>
             </ul>
           </li>
-          <li><a href="Why-choose-us.html">Why Choose Us</a></li>
+          <li><a href="why-choose-us.html">Why Choose Us</a></li>
           <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -86,35 +86,34 @@
     <section id="contact" class="contact section">
 
       <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+              <div class="row gy-4"></div>
+      <!-- AI Visual (sóng âm) -->
+<div class="col-lg-5 ai-visual" data-aos="fade-right" data-aos-delay="200">
+  <div class="wave-container" id="aiWave">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div>
+  <p class="ai-text">TrueVoice AI is listening... <br> Click to Try our AI</p>
 
-        <div class="row gy-4">
-
-          <div class="col-lg-5">
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h3>Address</h3>
-                <p>Need to fill
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3>Call Us</h3>
-                <p>Need to fill</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h3>Email Us</h3>
-                <p>Need to fill</p>
-              </div>
-            </div><!-- End Info Item -->
-
-          </div>
+  
+  <!-- AI Chat Popup -->
+  <div class="ai-chat" id="aiChat">
+    <div class="ai-header">TrueVoice AI Assistant</div>
+    <div class="ai-messages" id="aiMessages">
+      <div class="ai-msg bot">👋 Hello! I’m TrueVoice AI. How can I help you today?</div>
+    </div>
+    <div class="ai-input">
+      <button id="micBtn" title="Speak"><i class="bi bi-mic"></i></button>
+      <input type="text" id="userInput" placeholder="Type or speak your message..." />
+      <button id="sendBtn"><i class="bi bi-send"></i></button>
+    </div>
+  </div>
+</div>
 
           <div class="col-lg-7">
             <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">

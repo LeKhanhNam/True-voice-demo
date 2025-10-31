@@ -2106,7 +2106,7 @@ section,
 .contact .php-email-form input[type="text"],
 .contact .php-email-form input[type="email"],
 .contact .php-email-form textarea {
-  font-size: 16px;
+  font-size: 18px;
   padding: 10px 15px;
   box-shadow: none;
   border-radius: 0;
@@ -2114,9 +2114,9 @@ section,
   background-color: color-mix(
     in srgb,
     var(--background-color),
-    transparent 50%
+    transparent 70%
   );
-  border-color: color-mix(in srgb, var(--default-color), transparent 75%);
+  border-color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
 .contact .php-email-form input[type="text"]:focus,
@@ -2128,7 +2128,7 @@ section,
 .contact .php-email-form input[type="text"]::placeholder,
 .contact .php-email-form input[type="email"]::placeholder,
 .contact .php-email-form textarea::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 70%);
+  color: color-mix(in srgb, var(--default-color), transparent 79%);
 }
 
 .contact .php-email-form button[type="submit"] {
@@ -2142,6 +2142,193 @@ section,
 
 .contact .php-email-form button[type="submit"]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+#contact .container {
+  display: flex;
+  justify-content: center; /* căn giữa theo chiều ngang */
+}
+
+
+.ai-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+/* Sóng âm */
+.wave-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  height: 120px;
+  cursor: pointer;
+}
+
+.wave {
+  width: 6px;
+  height: 40px;
+  background: linear-gradient(180deg, #f57117, #ffb347);
+  border-radius: 3px;
+  animation: waveAnimation 1.2s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(245, 113, 23, 0.4);
+}
+.wave:nth-child(2){animation-delay:0.1s;}
+.wave:nth-child(3){animation-delay:0.2s;}
+.wave:nth-child(4){animation-delay:0.3s;}
+.wave:nth-child(5){animation-delay:0.4s;}
+.wave:nth-child(6){animation-delay:0.5s;}
+.wave:nth-child(7){animation-delay:0.6s;}
+
+@keyframes waveAnimation {
+  0%, 100% {height: 30px; opacity: 0.8;}
+  50% {height: 100px; opacity: 1;}
+}
+
+.wave-container:hover .wave {
+  animation-duration: 0.6s;
+  box-shadow: 0 0 20px rgba(255, 179, 71, 0.8);
+}
+
+.ai-text {
+  font-size: 16px;
+  color: #333;
+  margin-top: 15px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+/* ==== Chat Popup ==== */
+.ai-chat {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 75px); /* ✅ 75px ≈ 2cm (1 cm ≈ 37.8px) */
+  width: 280px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 20;
+  transform: translateY(-10px);
+  animation: fadeInChat 0.3s ease;
+}
+
+.ai-visual {
+  position: relative; /* ✅ rất quan trọng */
+}
+
+
+@keyframes fadeInChat {
+  from {
+    opacity: 0;
+    transform: translate(20px, -10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, -10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .ai-chat {
+    position: relative;
+    left: 0;
+    top: 15px;
+    transform: none;
+    margin: 0 auto;
+  }
+}
+
+.ai-visual {
+  position: relative; /* ✅ để .ai-chat căn theo sóng âm */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.ai-header {
+  background: linear-gradient(90deg, #f57117, #ffb347);
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px;
+}
+
+.ai-messages {
+  height: 220px;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+.ai-msg {
+  margin: 8px 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  max-width: 90%;
+}
+
+.ai-msg.bot {
+  background: #f6f6f6;
+  color: #333;
+  align-self: flex-start;
+}
+
+.ai-msg.user {
+  background: #f57117;
+  color: #fff;
+  align-self: flex-end;
+}
+
+.ai-input {
+  display: flex;
+  border-top: 1px solid #eee;
+    margin-left: 20px;
+}
+
+.ai-input input {
+  flex: 1;
+  border: none;
+  padding: 8px 10px;
+  font-size: 14px;
+}
+
+.ai-input button {
+  background: none;
+  border: none;
+  color: #f57117;
+  font-size: 18px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.ai-input input:focus {
+  outline: none;
+}
+
+.ai-chat {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 20px;
+  margin-left: 20px;
+  width: 280px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 99;
 }
 
 /*--------------------------------------------------------------
@@ -3246,4 +3433,3 @@ html {
   transform: scale(1.12);
   filter: drop-shadow(0 4px 8px rgba(245,113,23,0.25));
 }
-
